@@ -38,10 +38,25 @@ public class Solution
     {
         HashMap<String, Integer> result = new HashMap<String, Integer>();
 
-        //напишите тут ваш код
+        for (int i = 0; i < list.size(); i++)
+        {
+            result.put(list.get(i),0);
+        }
 
+        HashMap<String, Integer> buff = new HashMap<String, Integer>();
 
-        return result;
+        for (Map.Entry<String,Integer> m:result.entrySet())
+        {
+            int k=0;
+            for (int i = 0; i < list.size(); i++)
+            {
+                if(list.get(i).equals(m.getKey()))
+                    k++;
+                buff.put(m.getKey(),k);
+            }
+        }
+
+        return buff;
     }
 
 }

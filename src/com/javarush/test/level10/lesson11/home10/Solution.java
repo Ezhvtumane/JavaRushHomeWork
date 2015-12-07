@@ -30,7 +30,7 @@ public class Solution
 
     public static int safeGetElement(ArrayList<Integer> list, int index, int defaultValue)
     {
-      //напишите тут ваш код
+      return 0;
     }
 
 }
