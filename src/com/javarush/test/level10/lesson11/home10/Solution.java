@@ -17,7 +17,7 @@ public class Solution
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         ArrayList<Integer> list = new ArrayList<Integer>();
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 6; i++)
         {
             int x = Integer.parseInt(reader.readLine());
             list.add(x);
@@ -30,23 +30,29 @@ public class Solution
 
     public static int safeGetElement(ArrayList<Integer> list, int index, int defaultValue)
     {
-        int element=0;
+      int element=0;
       try
       {
-         // if(list.size()>=index)
-          element=list.get(index);
-        //  else
-        //  {
-            //  System.out.println("Выход за размеры списка. Вывожу значение по-умолчанию: "+defaultValue);
-              //new Exception();
-        //  }
+      //    if(list.size()>=index)
+      //    {
+              element = list.get(index);
+              return element;
+      //    }
+      //    else
+      //    {
+      //        System.out.println("Выход за размеры списка. Вывожу значение по-умолчанию: "+defaultValue);
+      //        throw new Exception();
+      //        return defaultValue;
+      //    }
+
       }
       catch (Exception e)
         {
-           // System.out.println("Выход за размеры списка. Вывожу значение по-умолчанию: "+defaultValue);
+      //    System.out.println("Выход за размеры списка. Вывожу значение по-умолчанию: "+defaultValue);
+      //    System.out.println(e);
             return defaultValue;
         }
-      return element;
+
     }
 
 }
