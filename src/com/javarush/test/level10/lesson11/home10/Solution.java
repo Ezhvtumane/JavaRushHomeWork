@@ -30,7 +30,23 @@ public class Solution
 
     public static int safeGetElement(ArrayList<Integer> list, int index, int defaultValue)
     {
-      return 0;
+        int element=0;
+      try
+      {
+         // if(list.size()>=index)
+          element=list.get(index);
+        //  else
+        //  {
+            //  System.out.println("Выход за размеры списка. Вывожу значение по-умолчанию: "+defaultValue);
+              //new Exception();
+        //  }
+      }
+      catch (Exception e)
+        {
+           // System.out.println("Выход за размеры списка. Вывожу значение по-умолчанию: "+defaultValue);
+            return defaultValue;
+        }
+      return element;
     }
 
 }
