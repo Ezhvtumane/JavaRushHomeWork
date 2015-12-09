@@ -31,10 +31,27 @@ public class Solution
 
         System.out.println(array[9]);
         System.out.println(array[10]);
+        /*for (int i = 0; i < array.length; i++)
+        {
+            System.out.println(array[i]);
+        }*/
+
     }
 
     public static void sort(int[] array)
     {
-        //напишите тут ваш код
+        int buff=0;
+        for (int i = 0; i < array.length; i++)
+        {
+            for (int j = 0; j < array.length; j++)
+            {
+                if(array[i]<array[j])
+                {
+                    buff=array[i];
+                    array[i]=array[j];
+                    array[j]=buff;
+                }
+            }
+        }
     }
 }
