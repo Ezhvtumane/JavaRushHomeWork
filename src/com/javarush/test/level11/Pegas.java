@@ -6,5 +6,4 @@ package com.javarush.test.level11;
 public class Pegas extends Horse
 {
 
-
 }
