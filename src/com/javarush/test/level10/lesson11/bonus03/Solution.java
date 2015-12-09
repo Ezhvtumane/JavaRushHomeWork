@@ -22,6 +22,7 @@ public class Solution
     {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int[] array = new int[30];
+        /*Сменить на i < 30 перед сдачей!*/
         for (int i = 0; i < 30; i++)
         {
             array[i] = Integer.parseInt(reader.readLine());
