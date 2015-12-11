@@ -1,5 +1,7 @@
 package com.javarush.test.level11.t05;
 
+import com.javarush.test.level11.t04.Manager;
+
 /**
  * Created by georgy on 11.12.15.
  */
@@ -15,4 +17,18 @@ package com.javarush.test.level11.t05;
  */
 public class Main
 {
+    public static void main(String[] args)
+    {
+        Programmer pr = new Programmer();
+        pr.className();
+
+        Clerk cl = new Clerk();
+        cl.className();
+        cl.age = 12;
+        cl.name = "John";
+
+        Worker pm = new ProjectManager();
+        pm.className();
+
+    }
 }

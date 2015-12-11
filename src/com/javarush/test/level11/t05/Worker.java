@@ -5,4 +5,11 @@ package com.javarush.test.level11.t05;
  */
 public class Worker
 {
+    String name;
+    int age;
+
+    public void className()
+    {
+        System.out.println(super.getClass());
+    }
 }
