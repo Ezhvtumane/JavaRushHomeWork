@@ -17,10 +17,45 @@ package com.javarush.test.level13.lesson11.bonus01;
 10
 */
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Solution
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
-        // напишите тут ваш код
+        //Читаем имя файла
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String fileName = reader.readLine();
+        String count="";
+        BufferedReader in = new BufferedReader(new FileReader(fileName));
+
+        ArrayList<Integer> list = new ArrayList<>();
+        count=in.readLine();
+
+        while(count != null)
+        {
+            list.add(Integer.parseInt(count));
+            count=in.readLine();
+        }
+
+        ArrayList<Integer> div2 = new ArrayList();
+
+        for (int i = 0; i < list.size(); i++)
+        {
+            if(list.get(i)%2==0) div2.add(list.get(i));
+        }
+
+        Collections.sort(div2);
+
+        for (Integer i: div2)
+        {
+            System.out.println(i);
+        }
+
+
+
+
     }
 }
