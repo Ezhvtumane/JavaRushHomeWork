@@ -12,7 +12,6 @@ public class Solution
     {
         Building school = getSchool();
         Building shop = getBuilding();
-
         System.out.println(school);
         System.out.println(shop);
     }
