@@ -18,14 +18,21 @@ public class Solution {
     }
 
     public static Drink getDeliciousDrink() {
-
+        return new Drink()
+        {
+            @Override
+            public void taste()
+            {
+                super.taste();
+            }
+        };
     }
 
     public static Wine getWine() {
-
+        return new Wine();
     }
 
     public static Wine getBubblyWine() {
-
+        return new BubblyWine();
     }
 }
