@@ -28,7 +28,19 @@ public class Solution
 
     public static void cleanAllApartaments(List<Apartament> apartaments)
     {
-        //написать тут вашу реализацию пунктов 1-4
+        for (int i = 0; i < apartaments.size(); i++)
+        {
+            switch (apartaments.get(i).getClass().getSimpleName())
+            {
+                case "Apt1Room":((Apt1Room) apartaments.get(i)).clean1Room();break;
+                case "Apt2Room":((Apt2Room) apartaments.get(i)).clean2Rooms();break;
+                case "Apt3Room":((Apt3Room) apartaments.get(i)).clean3Rooms();break;
+            }
+
+            /*if(apartaments.get(i) instanceof Apt1Room) ((Apt1Room) apartaments.get(i)).clean1Room();
+            else if(apartaments.get(i) instanceof Apt2Room) ((Apt2Room) apartaments.get(i)).clean2Rooms();
+            else if(apartaments.get(i) instanceof Apt3Room) ((Apt3Room) apartaments.get(i)).clean3Rooms();*/
+        }
     }
 
     static interface Apartament
