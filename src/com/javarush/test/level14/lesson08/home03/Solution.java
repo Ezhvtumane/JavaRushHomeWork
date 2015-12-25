@@ -2,6 +2,7 @@ package com.javarush.test.level14.lesson08.home03;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,40 +29,24 @@ public class Solution
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Person person = null;
         String key = null;
-        HashMap<String, Person> map = new HashMap<>();
+        ArrayList<String> list = new ArrayList<>();
+       // HashMap<String, Person> map = new HashMap<>();
 
         key=reader.readLine();
         while(key.equals("user") || key.equals("looser") || key.equals("coder") || key.equals("proger"))
         {
             //System.out.println(key);
-            switch (key)
-            {
-                case "user":
-                {
-                    map.put(key, new Person.User());
-                    break;
-                }
-                case "looser":
-                {
-                    map.put(key, new Person.Looser());
-                    break;
-                }
-                case "coder":
-                {
-                    map.put(key, new Person.Coder());
-                    break;
-                }
-                case "proger":
-                {
-                    map.put(key, new Person.Proger());
-                    break;
-                }
-            }
+            list.add(key);
             key = reader.readLine();
         }
-        for (Map.Entry<String, Person> m : map.entrySet())
+        for (int i = 0; i < list.size(); i++)
         {
-            person = m.getValue();
+            switch (list.get(i)){
+                case "user":person = new Person.User();break;
+                case "looser":person = new Person.Looser();break;
+                case "coder":person = new Person.Coder();break;
+                case "proger":person = new Person.Proger();break;
+            }
                 doWork(person); //вызываем doWork
         }
 
