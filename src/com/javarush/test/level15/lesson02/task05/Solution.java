@@ -38,7 +38,7 @@ public class Solution {
         }
 
         public boolean containsBones() {
-            return super.containsBones() && !isFoot;
+            return super.containsBones() && isFoot;
         }
     }
     public static void main(String[] args)
