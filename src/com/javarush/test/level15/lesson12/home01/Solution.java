@@ -28,11 +28,11 @@ public class Solution {
                     else if (Integer.parseInt(s) >= 128) print(Integer.parseInt(s));
                     else print(s);
                 }
-                catch (Exception e)
+                catch (NumberFormatException e)
                 {
                     print(s);
                     //System.out.println(e);
-                };
+                }
             }
             }
 
