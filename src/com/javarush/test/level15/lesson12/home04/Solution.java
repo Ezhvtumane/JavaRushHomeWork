@@ -15,6 +15,10 @@ public class Solution {
     public static Planet thePlanet;
 
     //add static block here - добавьте статический блок тут
+    static
+    {
+        readKeyFromConsoleAndInitPlanet();
+    }
 
     public static void readKeyFromConsoleAndInitPlanet() {
         // implement step #5 here - реализуйте задание №5 тут
