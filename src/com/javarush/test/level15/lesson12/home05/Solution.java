@@ -8,5 +8,21 @@ package com.javarush.test.level15.lesson12.home05;
 */
 
 public class Solution {
+
+    public Solution(){}
+    public Solution(String  pub){}
+    public Solution(Double oub){}
+
+    private Solution(Integer priv){}
+    private Solution(Float priv){}
+    private Solution(Object priv){}
+
+    protected Solution(char prot){}
+    protected Solution(char[] prot){}
+    protected Solution(String[] prot){}
+
+    Solution(int[] empt){}
+    Solution(Float[] empt){}
+    Solution(Object[] empt){}
 }
 
