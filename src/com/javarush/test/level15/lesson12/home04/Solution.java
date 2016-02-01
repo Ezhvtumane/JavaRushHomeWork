@@ -11,17 +11,38 @@ package com.javarush.test.level15.lesson12.home04;
 5.3. Сравнивать введенный параметр можно только с константами из Planet, нельзя создавать свои строки.
 */
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Solution {
     public static Planet thePlanet;
 
     //add static block here - добавьте статический блок тут
     static
     {
-        readKeyFromConsoleAndInitPlanet();
-    }
+        try
+        {
+            readKeyFromConsoleAndInitPlanet();
+        }
+        catch (IOException e)
+        {
+            System.out.println("Ошибка ввода: "+e.toString());
+        }
+        }
 
-    public static void readKeyFromConsoleAndInitPlanet() {
+    public static void readKeyFromConsoleAndInitPlanet() throws IOException{
         // implement step #5 here - реализуйте задание №5 тут
-        thePlanet = Sun.getInstance();
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        switch(reader.readLine())
+        {
+            case (Planet.EARTH): thePlanet=Earth.getInstance();break;
+            case (Planet.MOON): thePlanet=Moon.getInstance();break;
+            case (Planet.SUN): thePlanet=Sun.getInstance();break;
+            default:thePlanet=null;
+        }
+        //  thePlanet = Sun.getInstance();
     }
 }

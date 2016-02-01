@@ -5,12 +5,17 @@ package com.javarush.test.level15.lesson12.home04;
  */
 public final class Moon implements Planet
 {
-    private static final Moon instance = new Moon();
+    private static Moon instance;
 
     private Moon(){}
 
     public static Moon getInstance()
     {
+        if(instance==null)
+        {
+            instance = new Moon();
+        }
+
         return instance;
     }
 }
