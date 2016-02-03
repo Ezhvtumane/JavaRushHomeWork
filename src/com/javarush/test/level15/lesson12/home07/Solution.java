@@ -1,9 +1,6 @@
 package com.javarush.test.level15.lesson12.home07;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +11,27 @@ import java.util.List;
 */
 
 public class Solution {
+
     public static List<String> lines = new ArrayList<String>();
+
+    static
+    {
+        File file = new File(Constants.FILE_NAME);
+        String s;
+        try
+        {
+            BufferedReader fr = new BufferedReader(new FileReader(file));
+            while ((s = fr.readLine())!=null)
+            {
+                lines.add(s);
+            }
+            fr.close();
+        }
+        catch (Exception e){}
+
+    }
+
+
 
     public static void main(String[] args) {
         System.out.println(lines);
