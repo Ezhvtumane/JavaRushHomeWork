@@ -22,9 +22,18 @@ obj name
 double 3.14
 */
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 public class Solution {
-    public static void main(String[] args) {
-        //add your code here
+    public static void main(String[] args) throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        String s = reader.readLine();
+
+        System.out.println(s.substring(s.indexOf("?")+1,s.length()));
+
     }
 
     public static void alert(double value) {
