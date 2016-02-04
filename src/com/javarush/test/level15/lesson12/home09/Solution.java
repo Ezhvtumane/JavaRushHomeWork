@@ -31,8 +31,15 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         String s = reader.readLine();
+        String[] sa;
 
-        System.out.println(s.substring(s.indexOf("?")+1,s.length()));
+        ArrayList<String> array = new ArrayList<>();
+
+        sa=(s.substring(s.indexOf("?")+1,s.length())).split("&");
+
+        for(int i=0;i< sa.length; i++)
+        System.out.println(sa[i]);
+
 
     }
 
