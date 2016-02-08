@@ -20,11 +20,12 @@ http://javarush.ru/alpha/index.html?obj=3.14&name=Amigo
 Вывод:
 obj name
 double 3.14
+
+javarush.ru/alpha/index.html?lvl=15&??view&&&name=Aobjmigo&obj=3.14&name=&obj=djsdcd&&?oobj=3.0
 */
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
@@ -33,12 +34,35 @@ public class Solution {
         String s = reader.readLine();
         String[] sa;
 
-        ArrayList<String> array = new ArrayList<>();
 
         sa=(s.substring(s.indexOf("?")+1,s.length())).split("&");
 
-        for(int i=0;i< sa.length; i++)
-        System.out.println(sa[i]);
+        for(int i=0;i<sa.length; i++)
+        {
+            if(sa[i].contains("="))
+            System.out.print(sa[i].substring(0,sa[i].indexOf("=")));
+            else
+                System.out.print(sa[i].substring(0,sa[i].length()));
+//sa[i].indexOf("?")
+            System.out.print(" ");
+        }
+
+        System.out.println("");
+
+        for(int i=0;i<sa.length; i++)
+        {
+            if(!sa[i].equals(""))
+            if (sa[i].substring(0,3).equals("obj")/*sa[i].contains("obj")*/)
+                try
+                {
+                    alert(Double.parseDouble(sa[i].substring(sa[i].indexOf("=")+1,sa[i].length())));
+                }
+                catch(Exception e)
+                {
+                    alert(sa[i].substring(sa[i].indexOf("=")+1,sa[i].length()));
+                }
+        }
+
 
 
     }
