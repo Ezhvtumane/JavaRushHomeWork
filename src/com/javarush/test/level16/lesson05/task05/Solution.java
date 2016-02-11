@@ -25,15 +25,18 @@ public class Solution {
             kitten1 = new Kitten("Котенок 1, мама - " + getName());
             kitten2 = new Kitten("Котенок 2, мама - " + getName());
             start();
+
         }
 
         public void run() {
             System.out.println(getName() + " родила 2 котенка");
             try {
                 initAllKitten();
-                //this.join();
+                kitten1.join();
+                kitten2.join();
             } catch (InterruptedException e) {
             }
+
             System.out.println(getName() + ": Все котята в корзинке. " + getName() + " собрала их назад");
         }
 

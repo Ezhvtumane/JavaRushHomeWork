@@ -12,10 +12,12 @@ public class Solution {
 
     public static void main(String[] args) throws InterruptedException {
         Politic ivanov = new Politic("Иванов");
+        ivanov. start();
         Politic petrov = new Politic("Петров");
         Politic sidorov = new Politic("Сидоров");
 
         while (ivanov.getCountSpeaches() + petrov.getCountSpeaches() + sidorov.getCountSpeaches() < totalCountSpeeches) {
+            ivanov.join();
         }
 
         System.out.println(ivanov);
@@ -28,7 +30,7 @@ public class Solution {
 
         public Politic(String name) {
             super(name);
-            start();
+
         }
 
         public void run() {
