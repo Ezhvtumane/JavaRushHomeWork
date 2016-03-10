@@ -64,8 +64,31 @@ public class Solution {
         }
 
         @Override
-        public void run() {
-            //Add your code here - добавь код тут
+        public boolean isInterrupted()
+        {
+            return super.isInterrupted();
         }
+
+        @Override
+        public void run(){
+            try
+            {
+                for (String s : OnlineGame.steps)
+                {
+                    System.out.println(getName() + ":" + s);
+                    Thread.sleep(1000/rating);
+                }
+                System.out.println(getName() + ":победитель!");
+                OnlineGame.isWinnerFound = true;
+
+            }
+            catch (InterruptedException e)
+            {
+                System.out.println(getName() + ":проиграл");
+            }
+
+
+        }
+
     }
 }
