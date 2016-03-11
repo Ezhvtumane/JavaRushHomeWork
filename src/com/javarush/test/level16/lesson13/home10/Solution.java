@@ -15,9 +15,24 @@ package com.javarush.test.level16.lesson13.home10;
 [все тело второго файла]
 */
 
+import java.io.*;
+
 public class Solution {
     public static String firstFileName;
     public static String secondFileName;
+
+    static
+    {
+        try
+        {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            firstFileName = reader.readLine();
+            secondFileName = reader.readLine();
+            reader.close();
+        }
+        catch (IOException e){e.printStackTrace();}
+    }
+
 
     public static void main(String[] args) throws InterruptedException {
         systemOutPrintln(firstFileName);
@@ -28,6 +43,7 @@ public class Solution {
         ReadFileInterface f = new ReadFileThread();
         f.setFileName(fileName);
         f.start();
+        f.join();
         System.out.println(f.getFileContent());
     }
 
@@ -42,36 +58,47 @@ public class Solution {
         void start();
     }
 
-    public static class ReadFileThread implements ReadFileInterface,Runnable/*Поменять на Thread ? */{
+    public static class ReadFileThread extends Thread implements ReadFileInterface/*Поменять на Thread ? */{
+
+        String filename;
+        File f;
+        FileReader fr;
+        String result="";
 
         @Override
         public void setFileName(String fullFileName)
         {
-
+            filename=fullFileName;
         }
 
         @Override
         public String getFileContent()
         {
-            return null;
-        }
-
-        @Override
-        public void join() throws InterruptedException
-        {
-
-        }
-
-        @Override
-        public void start()
-        {
-
+           return result.trim();
         }
 
         @Override
         public void run()
         {
+            int res;
+            try{
+                f = new File(filename);
+                fr = new FileReader(f);
+                while((res=fr.read())!=-1)
+                {
+                    if (res == 10)
+                    {res = 32;
+                        result+=((char)res);}
+                    else if(res==13){}else result+=((char)res);
 
+                    //System.out.print((char)res);
+                }
+                //System.out.println(result);
+                fr.close();
+            }
+            catch (Exception e) {
+                System.out.println(("oops"));
+                e.printStackTrace();}
         }
     }
 }
