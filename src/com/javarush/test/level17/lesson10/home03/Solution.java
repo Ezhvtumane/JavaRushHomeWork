@@ -11,11 +11,13 @@ import java.util.List;
 Расставь synchronized там, где это необходимо
 */
 
-public class Solution {
+public class Solution
+{
     public static DrugsController drugsController = new DrugsController();
     public static boolean isStopped = false;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException
+    {
         Thread apteka = new Thread(new Apteka());
         Thread man = new Thread(new Person(), "Мужчина");
         Thread woman = new Thread(new Person(), "Женщина");
@@ -28,28 +30,69 @@ public class Solution {
         isStopped = true;
     }
 
-    public static class Apteka {
+    public static class Apteka implements Runnable
+    {
+
+        public void run()
+        {
+            while(!isStopped)
+            {
+                drugsController.buy(getRandomDrug(), getRandomCount());
+                try
+                {
+                    Thread.sleep(300);
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+
 
     }
 
-    public static class Person {
+    public static class Person implements Runnable
+    {
 
+        public void run()
+        {
+            while(!isStopped)
+            {
+                drugsController.sell(getRandomDrug(), getRandomCount());
+                try
+                {
+                    Thread.sleep(100);
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
-    public static int getRandomCount() {
+
+    public static int getRandomCount()
+    {
         return (int) (Math.random() * 3) + 1;
     }
 
-    public static Drug getRandomDrug() {
+    public static Drug getRandomDrug()
+    {
         int index = (int) ((Math.random() * 1000) % (drugsController.allDrugs.size()));
         List<Drug> drugs = new ArrayList<>(drugsController.allDrugs.keySet());
         return drugs.get(index);
     }
 
-    private static void waitAMoment() {
-        try {
+    private static void waitAMoment()
+    {
+        try
+        {
             Thread.sleep(100);
-        } catch (InterruptedException e) {
+        }
+        catch (InterruptedException e)
+        {
         }
     }
 }
