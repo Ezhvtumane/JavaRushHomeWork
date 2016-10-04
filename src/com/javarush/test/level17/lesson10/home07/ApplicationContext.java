@@ -17,11 +17,11 @@ public abstract class ApplicationContext<GenericsBean extends Bean> {
         parseAllClassesAndInterfaces();
     }
 
-    public GenericsBean getByName(String name) {
+    synchronized public GenericsBean getByName(String name) {
           return container.get(name);
     }
 
-    public GenericsBean removeByName(String name) {
+    synchronized public GenericsBean removeByName(String name) {
         return container.remove(name);
     }
 
